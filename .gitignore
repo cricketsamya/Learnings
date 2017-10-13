@@ -1,0 +1,10 @@
+.metadata/*
+HibernateHelloWorld/*
+*/.setting
+*/.setting/*
+*/.maven
+*/.maven/*
+*/bin
+*/bin/*
+*/target
+*/target/*
