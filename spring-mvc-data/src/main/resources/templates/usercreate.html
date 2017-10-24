@@ -1,0 +1,21 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"></meta>
+<title>Create user</title>
+</head>
+<body>
+	<p>Create user
+	<h4></h4>
+	<font color="red" th:text="${errorMessage}"></font>
+	<font color="green" th:text="${successMessage}"></font>
+	</p>
+
+	<form action="/usercreate" method="POST">
+		Name : <input name="name" type="text" /> Location : <input
+			name="location" type="text" /> Username : <input name="username"
+			type="text" /> Password : <input name="password" type="password" />
+		<input type="submit" />
+	</form>
+</body>
+</html>
