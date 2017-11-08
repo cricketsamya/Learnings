@@ -20,7 +20,9 @@ import org.junit.Test;
 import de.sk.meetingparser.data.MeetingData;
 
 /**
- * @author Arjun
+ * Test class for MeetingParser class
+ * 
+ * @author Sameer Kulkarni
  *
  */
 public class MeetingParserTest {
@@ -45,7 +47,7 @@ public class MeetingParserTest {
 	}
 
 	@Test
-	public void testParseNormal_Entries() throws FileNotFoundException, IOException, ParseException {
+	public void testParseNormalEntries() throws FileNotFoundException, IOException, ParseException {
 		Map<Date, List<MeetingData>> calender = mp.parse("src/test/resources/input.txt");
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		List<MeetingData> list = calender.get(formatter.parse("2015-08-21"));
@@ -75,5 +77,22 @@ public class MeetingParserTest {
 		List<MeetingData> list = calender.get(formatter.parse("2015-08-21"));
 		assertEquals(1, list.size());
 		assertEquals("EMP006", list.get(0).getEmployeeId());
+	}
+
+	@Test
+	public void testParseNormalDuplicateBigFile() throws FileNotFoundException, IOException, ParseException {
+		Map<Date, List<MeetingData>> calender = mp.parse("src/test/resources/inputbig.txt");
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		List<MeetingData> list = calender.get(formatter.parse("2015-08-21"));
+		assertEquals(1, list.size());
+	}
+
+	@Test
+	public void testEmptyInputFile() throws FileNotFoundException, IOException, ParseException {
+		mp.parse("src/test/resources/inputempty.txt");
+	}
+
+	public void testInvalidInputFile() throws FileNotFoundException, IOException, ParseException {
+		mp.parse("src/test/resources/inputinvalid.txt");
 	}
 }
