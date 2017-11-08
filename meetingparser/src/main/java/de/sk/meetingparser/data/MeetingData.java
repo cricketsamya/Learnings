@@ -3,7 +3,13 @@ package de.sk.meetingparser.data;
 import java.time.LocalTime;
 import java.util.Date;
 
-public class MeetingData implements Comparable<MeetingData> {
+/**
+ * Meeting data POJO
+ * 
+ * @author Sameer Kulkarni
+ *
+ */
+public class MeetingData {
 
 	private String employeeId;
 	private LocalTime startTime;
@@ -65,11 +71,6 @@ public class MeetingData implements Comparable<MeetingData> {
 		} else if (!startTime.equals(other.startTime))
 			return false;
 		return true;
-	}
-
-	@Override
-	public int compareTo(MeetingData o) {
-		return startTime.compareTo(o.startTime);
 	}
 
 }
